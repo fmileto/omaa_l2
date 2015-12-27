@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<config>
+
+	<controler>
+		<iterations>40000</iterations>
+	</controler>
+
+	<construction>
+		<insertion name="bestInsertion">
+			<considerFixedCosts weight="1.0" />
+		</insertion>
+	</construction>
+
+	<strategy>
+		<memory>3</memory>
+		<searchStrategies>
+
+			<searchStrategy id="radialRuinAndRecreate">
+				<selector name="selectBest" />
+				<acceptor name="acceptNewRemoveWorst" />
+				<modules>
+					<module name="ruin_and_recreate">
+						<ruin name="randomRuin">
+							<share>0.5</share>
+						</ruin>
+						<insertion name="bestInsertion" />
+					</module>
+					<module name="bestInsertion"></module>
+				</modules>
+				<probability>0.5</probability>
+			</searchStrategy>
+
+			<searchStrategy name="radialRuinAndRecreate">
+				<selector name="selectBest"/>
+				<acceptor name="acceptNewRemoveWorst"/>
+					
+				<modules>
+					<module name="ruin_and_recreate">
+						<ruin id="1" name="radialRuin">
+							<share>0.3</share>
+						</ruin>
+						<insertion name="bestInsertion"/>					
+					</module>
+					
+				</modules>
+				<probability>0.5</probability>
+			</searchStrategy>
+
+			<!-- <searchStrategy id="gendreauPostOpt"> -->
+			<!-- <modules> -->
+			<!-- <module name="gendreauPostOpt"> -->
+			<!-- <iterations>200</iterations> -->
+			<!-- <share>0.2</share> -->
+			<!-- </module> -->
+			<!-- </modules> -->
+			<!-- <probability>0.1</probability> -->
+			<!-- </searchStrategy> -->
+			-->
+		</searchStrategies>
+
+		<before></before>
+
+		<after></after>
+
+	</strategy>
+
+
+</config>

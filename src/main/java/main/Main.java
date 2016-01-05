@@ -48,14 +48,7 @@ public class Main {
 			VehicleRoutingAlgorithm vra = VehicleRoutingAlgorithms.readAndCreateAlgorithm(vrp, 
 					(int)options.get(CONSTANTS.THREADS), (String)options.get(CONSTANTS.CONFIG));
 			setTimeLimit(vra, (long)options.get(CONSTANTS.TIME));
-			
-//			
-//			ConstraintManager constraintManager = new ConstraintManager(routingProblem, stateManager);
-//			constraintManager.addConstraint(customConstraint);
-//			
-//			
-//			vra.setStateAndConstraintManager(constraintManager); 
-			
+						
 			// Solve the problem
 			Collection<VehicleRoutingProblemSolution> solutions = vra.searchSolutions();
 			// Extract the best solution
@@ -64,7 +57,7 @@ public class Main {
 			// Print solution on a file
 			OROutils.write(solution, (String)options.get(PARAMS.INSTANCE), System.currentTimeMillis()-startTime, (String)options.get(CONSTANTS.OUTPUT));
 			// Print solution on the screen (optional)
-			//SolutionPrinter.print(vrp, solution, SolutionPrinter.Print.VERBOSE);
+			SolutionPrinter.print(vrp, solution, SolutionPrinter.Print.VERBOSE);
 			// Draw solution on the screen (optional)
 			//new GraphStreamViewer(vrp, solution).labelWith(Label.ID).setRenderDelay(10).display();
 

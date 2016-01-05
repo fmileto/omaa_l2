@@ -22,7 +22,7 @@
 <algorithm xmlns="http://www.w3schools.com"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3schools.com algorithm_schema.xsd">
 	
-	<iterations>40000</iterations>
+	<iterations>1000</iterations>
 	<prematureBreak basedOn="variationCoefficient">
 		<threshold>0.001</threshold>
 		<iterations>2000</iterations>

@@ -92,7 +92,9 @@ public class SolomonReader {
 			String[] tokens = line.split(" +");
 			counter++;
 			if(counter == 5){
-				fleetSize = Integer.parseInt(tokens[0]) * ((Integer.parseInt(fleetFactor)/100)+1);
+				double factor = (Double.parseDouble(fleetFactor)/100)+1;
+				double fs = Integer.parseInt(tokens[0]) * factor;
+				fleetSize = (int) fs;
 				vehicleCapacity = Integer.parseInt(tokens[1]);
 				continue;
 			}

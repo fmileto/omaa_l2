@@ -16,7 +16,9 @@
  ******************************************************************************/
 package jsprit.core.algorithm.io;
 
+import jsprit.core.problem.VehicleRoutingProblem;
 import jsprit.core.util.Resource;
+
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,8 +33,8 @@ import java.net.URL;
 
 public class AlgorithmConfigXmlReader {
 	
-	private static Logger log = LogManager.getLogger(AlgorithmConfigXmlReader.class.getName());
-	
+	private final static Logger log = LogManager.getLogger(AlgorithmConfigXmlReader.class.getName());
+
 	private AlgorithmConfig algorithmConfig;
 	
 	private boolean schemaValidation = true;
@@ -86,7 +88,7 @@ public class AlgorithmConfigXmlReader {
 	
 	
 	public void read(String filename){
-		log.debug("read algorithm-config from file " + filename);
+		log.info("read algorithm-config from file " + filename, this);
 		URL url = Resource.getAsURL(filename);
 		read(url);
 	}

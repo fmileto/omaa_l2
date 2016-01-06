@@ -13,10 +13,10 @@
 <algorithm xmlns="http://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.w3schools.com algorithm_schema.xsd">
 
-	<iterations>10000</iterations>
+	<iterations>20000</iterations>
 	<prematureBreak basedOn="variationCoefficient">
 		<threshold>0.001</threshold>
-		<iterations>2000</iterations>
+		<iterations>20000</iterations>
 	</prematureBreak>
 
 	<construction>

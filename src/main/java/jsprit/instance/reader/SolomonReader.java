@@ -74,8 +74,12 @@ public class SolomonReader {
 		this.vrpBuilder = vrpBuilder;
 		this.fixedCostPerVehicle=fixedCostPerVehicle;
 	}
-
+	
 	public void read(String solomonFile){
+		read(solomonFile, "0");
+	}
+	
+	public void read(String solomonFile, String fleetFactor){
 		vrpBuilder.setFleetSize(FleetSize.INFINITE);
 		BufferedReader reader = getReader(solomonFile);
 		int vehicleCapacity = 0;
@@ -88,7 +92,7 @@ public class SolomonReader {
 			String[] tokens = line.split(" +");
 			counter++;
 			if(counter == 5){
-				fleetSize = Integer.parseInt(tokens[0]);
+				fleetSize = Integer.parseInt(tokens[0]) * ((Integer.parseInt(fleetFactor)/100)+1);
 				vehicleCapacity = Integer.parseInt(tokens[1]);
 				continue;
 			}
